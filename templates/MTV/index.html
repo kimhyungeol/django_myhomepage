@@ -1,0 +1,66 @@
+<head>
+    <script>
+           
+        var x = document.getElementById("myAudio"); 
+
+        function playAudio(req) { 
+        req.play(); 
+        } 
+
+        function pauseAudio() { 
+        x.pause(); 
+        } 
+
+    </script>
+    <style>
+        #testImg {
+            height: 250px;
+            width: 150px;
+        }
+        #play{
+            position: relative;
+
+        }
+
+        button.btn1 {
+            position: absolute;
+            display:none;         
+            top: 300px;
+            left : 100px; 
+            border-width:21px 0 21px 42px;
+            border-color:transparent transparent transparent gray;
+            border-style:solid solid solid solid;
+            background-color: transparent;
+        }
+        #testImg:hover .btn1{ display:block;} 
+
+      </style>
+</head>
+<h1>TEST speace</h1>
+<div id="contents">
+{% for post in posts %}
+</br>
+    <a href = "{% url 'detail' post.id %}" <h1>제목 : {{ post.title}}</h1></a>
+    <h4>작성 날짜 : {{post.date}}</h4>
+    {{post.body}}</br>
+    {% if post.photo %} 
+        <td class="td">             
+        <div id="testImg">
+            <img  id="play" src = "https://pigmamusic.s3.ap-northeast-2.amazonaws.com/{{ post.photo }}"  alt = "" height = "250px"; width = "200px"; >
+            <button class="btn1" type="button" onclick="playAudio()" href="{% url 'detail' post.id %}">{{post.id}}</button>
+        </div>
+        <audio class="12" controls>
+            <source src="https://pigmamusic.s3.ap-northeast-2.amazonaws.com/{{post.sound}}" type="audio/mp3">
+        </audio>
+    {% endif %}
+{% endfor %}
+    </br>
+<h5><a href=" {%url 'modelformcreate' %} "> 장고 모델 폼을 이용한 글 작성 </a></h5>
+</div>
+<!--
+<a href=" {%url 'new' %}"> 새로운 글 작성 </a></br>
+
+<a href=" {%url 'formcreate' %} "> 장고용 폼 글작성   </a></br>
+-->
+
+

@@ -1,0 +1,40 @@
+<style>
+#footer {
+    display: block;
+    position: sticky;
+    background-color: none;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4rem;
+}
+.sound{
+    display: none;
+}
+</style>
+<h1>제목</h1>
+{{ blog_detail.title}}
+
+<h3>날짜</h3>
+{{ blog_detail.date}}
+
+<h4>본문</h4>
+{{ blog_detail.body}}
+</br>
+{% if blog_detail.photo %}  
+    <img src = "https://pigmamusic.s3.ap-northeast-2.amazonaws.com/{{ blog_detail.photo }}" alt = "" height = "600">
+{% endif %}
+</br>
+{% if blog_detail.sound %}
+{% endif %}
+</br>
+ <a href="{%url 'delete' blog_detail.id %}  "> 삭제 </a></br>
+ <div id="footer">   
+    <div class="image-box">
+        <img src="https://pigmamusic.s3.ap-northeast-2.amazonaws.com/{{ blog_detail.photo }}"  width ="90" height = "50";>
+        <audio class="sound" controls>
+            <source src="https://pigmamusic.s3.ap-northeast-2.amazonaws.com/{{blog_detail.sound}}" type="audio/mp3">
+        </audio>
+    </div>
+
+</div>

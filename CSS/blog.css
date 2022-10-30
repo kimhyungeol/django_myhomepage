@@ -1,0 +1,8 @@
+.theme-light .bottom-player .player-progress-bar .form-range {
+    position: absolute;
+    height: 0.2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
