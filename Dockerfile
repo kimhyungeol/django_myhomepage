@@ -1,10 +1,10 @@
 # ./Dockerfile 
-FROM python:3
+FROM Python:3.8.9
 WORKDIR /home/ec2-user/work/
 
 ## Install packages
 COPY requirements.txt ./
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 ## Copy all src files
 COPY . .
